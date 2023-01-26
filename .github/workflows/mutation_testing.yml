@@ -1,0 +1,28 @@
+name: Build and Test
+
+on:
+  workflow_dispatch:
+
+env:
+  SOURCE_DIR: ${{github.workspace}}/source/
+  UT_SOURCE_DIR: ${{github.workspace}}/source/LinkedList.UnitTest/
+
+jobs:
+  run-mutation-test:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/dotnet/sdk:7.0
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Restore dependencies
+      working-directory: ${{env.SOURCE_DIR}}
+      run: dotnet restore
+    - name: Restore tool dependencies
+      working-directory: ${{env.SOURCE_DIR}}
+      run: dotnet tool restore
+    - name: Build and Unit-Test
+      working-directory: ${{env.SOURCE_DIR}}
+      run: dotnet test

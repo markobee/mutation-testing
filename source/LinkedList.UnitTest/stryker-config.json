@@ -1,0 +1,27 @@
+{
+  "stryker-config": {
+    "solution": "../LinkedList.sln",
+    "project": "LinkedList.csproj",
+    "reporters": ["html", "cleartexttree"],
+    "mutation-level": "Basic",
+    "ignore-mutations": [
+      "arithmetic",
+      "block",
+      "equality",
+      "logical",
+      "boolean",
+      "assignment",
+      "initializer",
+      "statement",
+      "unary",
+      "update",
+      "checked",
+      "linq",
+      "string",
+      "bitwise",
+      "regex",
+      "math",
+      "nullcoalescing"
+    ]
+  }
+}
