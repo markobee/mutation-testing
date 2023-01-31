@@ -3,11 +3,8 @@
     "solution": "../LinkedList.sln",
     "project": "LinkedList.csproj",
     "reporters": ["html", "cleartexttree"],
-    "mutation-level": "Basic",
+    "mutation-level": "Complete",
     "ignore-mutations": [
-      "arithmetic",
-      "block",
-      "equality",
       "logical",
       "boolean",
       "assignment",
