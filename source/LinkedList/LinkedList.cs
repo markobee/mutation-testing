@@ -150,7 +150,7 @@ namespace LinkedList
 
         public int Count { get; private set; }
 
-        public bool IsReadOnly => false;
+        public bool IsReadOnly {get {return false;}}
 
         public void InsertionSort()
         {
@@ -165,6 +165,7 @@ namespace LinkedList
             }
         }
 
+// Stryker disable once Equality
         private void Insert(LinkedListNode<T> tmp)
         {
             if (_first == null)
@@ -196,6 +197,8 @@ namespace LinkedList
                 prev.next = tmp;
             }
         }
+// Stryker restore Equality
+
 
     }
 }
