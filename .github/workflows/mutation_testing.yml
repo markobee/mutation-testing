@@ -26,3 +26,12 @@ jobs:
     - name: Build and Unit-Test
       working-directory: ${{env.SOURCE_DIR}}
       run: dotnet test
+    - name: Do mutation analysis
+      working-directory: ${{env.UT_SOURCE_DIR}}
+      run: dotnet stryker
+    - uses: actions/upload-artifact@v3
+      name: Upload stryker report
+      with:
+        name: stryker-report
+        path: ${{env.UT_SOURCE_DIR}}/**/mutation-report.html
+        retention-days: 3
